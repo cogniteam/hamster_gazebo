@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+    <env name="GAZEBO_MODEL_PATH" value="$(find hamster_sim)/models" />
+    <arg name="robots_count" default="2" />
+
+    <param name="/use_sim_time" value="true" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(find hamster_sim)/worlds/hamster.world" />
+    </include>
+
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find hamster_sim)/maps/hamster.yaml" />
+
+    <node name="mrm_ackermann_controller" pkg="mrm_ackermann_controller" type="mrm_ackermann_controller_node" output="screen">
+	<param name="robots_count" value="$(arg robots_count)"/>
+    </node>
+
+    <param name="robot_description"
+         command="$(find xacro)/xacro.py $(find ackermann_vehicle_description)/urdf/himoto_mastadon.urdf.xacro namespace:=agentx sensor_type:=ray gazebo_sensor_type:=libgazebo_ros_gpu_laser.so"/>
+
+    <node name="control_panel" pkg="rqt_gui" type="rqt_gui" args="-s mrm_control_panel/ControlPlugin" />
+
+<!--    <include file="$(find hamster_sim)/launch/agent.launch">
+        <arg name="namespace" value="agent1" />
+        <arg name="x" value="0" />
+        <arg name="y" value="1" />
+    </include>
+
+    <include file="$(find hamster_sim)/launch/agent.launch">
+        <arg name="namespace" value="agent2" />
+        <arg name="x" value="0" />
+        <arg name="y" value="-1" />
+    </include>-->
+</launch>

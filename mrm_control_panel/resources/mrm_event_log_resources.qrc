@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>selected.png</file>
+    <file>all.png</file>
+  </qresource>
+</RCC>

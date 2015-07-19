@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>hamster_sim</name>
+  <version>0.0.0</version>
+  <description>The hamster_sim package</description>
+
+  <maintainer email="blackpc@todo.todo">blackpc</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+
+  </export>
+</package>

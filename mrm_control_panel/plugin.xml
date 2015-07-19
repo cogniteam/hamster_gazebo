@@ -1,0 +1,17 @@
+<library path="lib/libmrm_control_panel">
+  <class name="mrm_control_panel/ControlPlugin" type="mrm_control_panel::ControlPlugin" base_class_type="rqt_gui_cpp::Plugin">
+    <description>
+      MRM Control Panel
+    </description>
+    <qtgui>
+      <group>
+        <icon type="theme">folder</icon>
+        <label>MRM</label>
+      </group>
+
+      <label>Multi-robot Control Panel</label>
+      <icon type="theme">gnome-settings</icon>
+      <statustip>Multi-robot Control Panel</statustip>
+    </qtgui>
+  </class>
+</library>

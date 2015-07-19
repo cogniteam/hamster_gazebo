@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="images">
+    <file>close_white.png</file>
+    <file>decision_white.png</file>
+    <file>malfunction_white.png</file>
+    
+    <file>interactive_icons/battery/b0.png</file>
+    <file>interactive_icons/battery/b1.png</file>
+    <file>interactive_icons/battery/b2.png</file>
+    <file>interactive_icons/battery/b3.png</file>
+
+    <file>interactive_icons/signal/s0.png</file>
+    <file>interactive_icons/signal/s1.png</file>
+    <file>interactive_icons/signal/s2.png</file>
+    <file>interactive_icons/signal/s3.png</file>
+    <file>interactive_icons/signal/s4.png</file>
+
+    <file>auto.png</file>
+    <file>manual.png</file>
+  </qresource>
+</RCC>

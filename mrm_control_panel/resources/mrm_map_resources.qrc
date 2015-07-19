@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="go_and_conditions">
+    <file>wifi.png</file>
+    <file>home.png</file>
+    <file>goal_green_flag.png</file>
+    <file>goal_red_flag.png</file>
+    <file>hand.png</file>
+    <file>green_flag.png</file>
+    <file>red_flag.png</file>
+  </qresource>
+</RCC>

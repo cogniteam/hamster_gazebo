@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="images">
+
+    <file>interactive_icons/battery/b0.png</file>
+    <file>interactive_icons/battery/b1.png</file>
+    <file>interactive_icons/battery/b2.png</file>
+    <file>interactive_icons/battery/b3.png</file>
+
+    <file>interactive_icons/signal/s0.png</file>
+    <file>interactive_icons/signal/s1.png</file>
+    <file>interactive_icons/signal/s2.png</file>
+    <file>interactive_icons/signal/s3.png</file>
+    <file>interactive_icons/signal/s4.png</file>
+  </qresource>
+</RCC>

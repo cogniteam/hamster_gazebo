@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="images">
+    <file>close_white.png</file>
+    <file>decision_white.png</file>
+    <file>malfunction_white.png</file>
+    
+    <file>interactive_icons/battery_full.png</file>
+    <file>interactive_icons/battery_90.png</file>
+    <file>interactive_icons/battery_80.png</file>
+    <file>interactive_icons/battery_60.png</file>
+    <file>interactive_icons/battery_50.png</file>
+    <file>interactive_icons/battery_30.png</file>
+    <file>interactive_icons/battery_20.png</file>
+    <file>interactive_icons/battery_critical.png</file>
+
+    <file>interactive_icons/wifi_full.png</file>
+    <file>interactive_icons/wifi_0.png</file>
+    <file>interactive_icons/wifi_1.png</file>
+    <file>interactive_icons/wifi_2.png</file>
+    <file>interactive_icons/wifi_3.png</file>
+    <file>interactive_icons/wifi_critical.png</file>
+  </qresource>
+</RCC>

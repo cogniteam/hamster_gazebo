@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="namespace" default="agentx"/>
+
+  <!-- Vehicle pose -->
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.0"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+  <arg name="load_controllers" default="true" />
+  <arg name="gpu_laser" default="true" />
+
+  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle.launch">
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="gpu_laser" default="$(arg gpu_laser)" />
+  </include>
+
+  <group ns="$(arg namespace)">
+    <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf 
+                -param /$(arg namespace)/robot_description
+                -model $(arg namespace)	
+                -x $(arg x) 
+                -y $(arg y) 
+                -z $(arg z)
+                -R $(arg roll) 
+                -P $(arg pitch) 
+                -Y $(arg yaw)"/>
+  </group>
+  
+  <group ns="$(arg namespace)" if="$(arg load_controllers)">
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" 
+            args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+  </group>
+  <node name="$(arg namespace)_transformer" pkg="mrm_transformer" type="agent_transformer_node" output="screen">
+	<param name="agent_namespace" value="/$(arg namespace)"/>
+  </node>
+  <node name="$(arg namespace)" pkg="mrm_wandering" type="wandering">
+        <remap from="/scan" to="/$(arg namespace)/scan_raw" />
+        <remap from="/cmd_vel_raw" to="/$(arg namespace)/cmd_vel_raw" />
+        <param name="base_link" value="/$(arg namespace)/base_link" />
+        <param name="drive_speed" value="0.25"/>
+        <param name="drive_back_speed" value="-0.1"/>
+        <param name="turn_right_speed" value="0.0"/>
+        <param name="turn_right_angle" value="-2"/>
+        <param name="turn_left_speed" value="0.0"/>
+        <param name="turn_left_angle" value="2"/>
+        <param name="turn_random_speed" value="0.0"/>
+        <param name="turn_random_angle" value="2"/>																																																																																																							
+ 
+  </node>
+</launch>

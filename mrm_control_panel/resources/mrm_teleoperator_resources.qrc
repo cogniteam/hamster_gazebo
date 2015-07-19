@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="images">
+    <file>autonomous.png</file>
+    <file>teleoperated.png</file>
+  </qresource>
+</RCC>

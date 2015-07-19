@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(mrm_wandering)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
+find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
+  nav_msgs
+  roscpp
+  std_msgs
+  sensor_msgs
+  tf
+  decision_making_parser
+  decision_making
+)
+  
+## System dependencies are found with CMake's conventions
+find_package(Boost REQUIRED COMPONENTS system)
+find_package(OpenCV REQUIRED)
+
+catkin_package(
+
+)
+
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+  include
+)
+
+## Declare a cpp executable
+add_executable(wandering src/WanderingNode.cpp
+                         src/Wandering.cpp)
+                         
+                        
+add_definitions(-DCLIENT_COMMUNICATION)
+
+
+target_link_libraries(wandering
+  ${catkin_LIBRARIES}
+)
+
+
+decision_making_parsing(src/Wandering.cpp)

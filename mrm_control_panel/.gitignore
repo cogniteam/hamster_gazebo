@@ -1,0 +1,43 @@
+### Catkin generated ###
+catkin/
+catkin_generated/
+cmake/
+CMakeFiles/
+devel/
+gtest/
+test_results/
+.settings/
+*.pyc
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+.pydevproject
+.cproject
+.project
+class_loader_hide_library_symbols__*
+
+### Linux temp ###
+*~
+
+############################################################
+# Qt auto generated header file ###########################s
+############################################################
+
+include/mrm_control_panel/TeleoperatorInstance.h
+include/mrm_control_panel/mrm_event_log_widget.h
+include/mrm_control_panel/mrm_map_widget.h
+include/mrm_control_panel/mrm_robot_widget.h
+include/mrm_control_panel/mrm_video_widget.h
+include/mrm_control_panel/mrm_control_widget.h
+include/mrm_control_panel/mrm_event_log_decision_item.h
+include/mrm_control_panel/mrm_event_log_item.h
+include/mrm_control_panel/mrm_operator_widget.h
+include/mrm_control_panel/mrm_system_message_widget.h
+
+
+qrc_*
+
+include/mrm_control_panel/moc_*
+
+ui_*

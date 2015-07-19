@@ -17,7 +17,8 @@ fi
 
 
 clear
-
+SIMULATION_LAUNCH_TIME=10
+SPAWNING_INTERVAL=10
 robots=2
 positions="0,1:0,-1:0,0:1,-1:0,-2"
 
@@ -70,7 +71,7 @@ echo -e "\e[32m\e[21m===========================================================
 roslaunch hamster_sim hamster.launch robots_count:=$robots &
 pid=$!
 echo $pid > $pid_file
-
+sleep ${SIMULATION_LAUNCH_TIME}s
 # Agents
 echo -e "\e[32m\e[21m================================================================================\e[0m
 2. Spawning agents"
@@ -86,7 +87,12 @@ do
 	  roslaunch hamster_sim agent.launch namespace:="agent$robot_id" x:=$x y:=$y 2>&1 &
     pid=$!
     echo $pid >> $pid_file
+    if [[ "$index" -eq "0" ]]; then
+	      sleep ${SPAWNING_INTERVAL}s
+    fi
 done
+
+sleep $[ $SIMULATION_LAUNCH_TIME + $SPAWNING_INTERVAL ]s
 
 # Await for exit
 echo -e "\e[32m\e[21m================================================================================\e[0m

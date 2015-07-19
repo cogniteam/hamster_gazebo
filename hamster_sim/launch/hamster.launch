@@ -19,16 +19,4 @@
          command="$(find xacro)/xacro.py $(find ackermann_vehicle_description)/urdf/himoto_mastadon.urdf.xacro namespace:=agentx sensor_type:=ray gazebo_sensor_type:=libgazebo_ros_gpu_laser.so"/>
 
     <node name="control_panel" pkg="rqt_gui" type="rqt_gui" args="-s mrm_control_panel/ControlPlugin" />
-
-<!--    <include file="$(find hamster_sim)/launch/agent.launch">
-        <arg name="namespace" value="agent1" />
-        <arg name="x" value="0" />
-        <arg name="y" value="1" />
-    </include>
-
-    <include file="$(find hamster_sim)/launch/agent.launch">
-        <arg name="namespace" value="agent2" />
-        <arg name="x" value="0" />
-        <arg name="y" value="-1" />
-    </include>-->
 </launch>

@@ -54,8 +54,8 @@ macro(decision_making_parsing _SRC_FILE_LIST)
 
 		#execute_process(COMMAND ${PARSER} "${CMAKE_CURRENT_SOURCE_DIR}" "${CPPFILES}" RESULT_VARIABLE rv)
 		#message(" -- parser result is ${rv}")
-		  
-		set(FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/cmake/decision_making_parsing.cmake )
+		execute_process(COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/cmake/decision_making_parsing.cmake ${CMAKE_CURRENT_SOURCE_DIR}/cmake/.decision_making_parsing.cmake)
+		set(FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/cmake/.decision_making_parsing.cmake )
 		message("  -- Parser configuration file ${FILE_NAME}")
 
 		set( SHARE_DIR_NAME ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/graphs )
@@ -107,7 +107,7 @@ macro(decision_making_parsing _SRC_FILE_LIST)
 		FILE(WRITE ${FILE_NAME} ${FILE_TEXT})
 
 		add_custom_target( decision_making_parsing_${PROJECT_NAME} ALL 
-			COMMAND ${CMAKE_COMMAND} -P  ${FILE_NAME} 
+			COMMAND ${CMAKE_COMMAND} -P  ${FILE_NAME}
 		)
 	else()
 		message(WARNING "List of files for parsing is empty : ${SRC_FILE_LIST}") 

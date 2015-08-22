@@ -28,6 +28,22 @@
                 -R $(arg roll) 
                 -P $(arg pitch) 
                 -Y $(arg yaw)"/>
+
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+              respawn="false" output="screen" >
+        <param name="tf_prefix" value="$(arg namespace)" />
+        <param name="robot_description"
+             command="$(find xacro)/xacro.py $(find ackermann_vehicle_description)/urdf/himoto_mastadon.urdf.xacro namespace:=agentx sensor_type:=ray gazebo_sensor_type:=libgazebo_ros_gpu_laser.so"/>
+        <remap from="/joint_states" to="/$(arg namespace)/joint_states" />
+    </node>
+
+    <!-- TODO: fix the urdf so these links can be correctly handled by robot_state_publisher -->
+    <node name="left_front_static_tf" pkg="tf" type="static_transform_publisher" args="0.09 0.07 -0.024803 0 0 0 $(arg namespace)/chassis $(arg namespace)/left_steering_link 10" />
+    <node name="right_front_static_tf" pkg="tf" type="static_transform_publisher" args="0.09 -0.07 -0.024803 0 0 0 $(arg namespace)/chassis $(arg namespace)/right_steering_link 10" />
+    <node name="left_rear_static_tf" pkg="tf" type="static_transform_publisher" args="-0.09 0.07 -0.024803 0 0 0 $(arg namespace)/chassis $(arg namespace)/left_rear_axle_carrier 10" />
+    <node name="right_rear_static_tf" pkg="tf" type="static_transform_publisher" args="-0.09 -0.07 -0.024803 0 0 0 $(arg namespace)/chassis $(arg namespace)/right_rear_axle_carrier 10" />
+
   </group>
   
   <group ns="$(arg namespace)" if="$(arg load_controllers)">
